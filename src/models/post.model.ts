@@ -3,13 +3,13 @@ import mongoose from "mongoose";
 interface PostDocument extends mongoose.Document{
     title: string,
     content:string,
-    createdAt: Date,
-    updateAt: Date
+    userID: mongoose.Types.ObjectId,
 } 
 
 const postSchema = new mongoose.Schema<PostDocument>({
-    title:{type:String, require:true},
-    content:{type:String, require:true}
-},{timestamps:true})
+    title:{type:String, required:true},
+    content:{type:String, required:true},
+    userID:{type: mongoose.Schema.Types.ObjectId, required:true, ref: "User", index:true}
+})
 
 export const PostModel = mongoose.model<PostDocument>("Post", postSchema)

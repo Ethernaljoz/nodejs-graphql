@@ -21,6 +21,6 @@ app.use("/graphql",graphqlHTTP({
 
 
 app.listen(port,()=>{
-    console.log(`http://localhost:${port}/graphiql`)
+    console.log(`http://localhost:${port}/graphql`)
     connectDB()
 })
